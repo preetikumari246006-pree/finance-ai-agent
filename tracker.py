@@ -5,7 +5,15 @@ class Tracker:
         self.data = self.storage.load_data()
       
     def add_expense(self, amount, category, description):
-        pass
+        transaction = {
+            "type": "expense",
+            "amount": amount,
+            "category": category,
+            "description": description
+        }
+        
+        self.data["transactions"].append(transaction)
+        self.storage.save_data(self.data)
     
     def add_income(self, amount, description):
         pass
