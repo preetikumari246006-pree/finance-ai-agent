@@ -30,4 +30,15 @@ class Tracker:
 
     
     def get_summary(self):
-        pass
+        total_income = 0
+        total_expenses = 0
+        for transaction in self.data["transactions"]:
+            if transaction["type"] == "income":
+                total_income += transaction["amount"]
+            else:
+                total_expenses += transaction["amount"]
+        balance = total_income - total_expenses
+        print(f"Total Income: {total_income}")
+        print(f"Total Expenses: {total_expenses}")
+        print(f"Balance: {balance}")
+                
