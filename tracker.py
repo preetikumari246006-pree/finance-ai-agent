@@ -14,10 +14,16 @@ class Tracker:
         
         self.data["transactions"].append(transaction)
         self.storage.save_data(self.data)
-    
+        
     def add_income(self, amount, description):
-        pass
-    
+        transaction = {
+            "type": "income",
+            "amount": amount,
+            "description": description
+        }
+        self.data["transactions"].append(transaction)
+        self.storage.save_data(self.data)
+        
     def view_transactions(self):
         pass
     
