@@ -1,4 +1,11 @@
 {
-    "transactions": [],
-    "balance": 0
+    "transactions": [
+        {
+            "type": "expense",
+            "amount": 500,
+            "category": "food",
+            "description": "groceries"
+        }
+    ],
+    "balance": -500
 }
