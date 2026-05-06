@@ -25,7 +25,9 @@ class Tracker:
         self.storage.save_data(self.data)
         
     def view_transactions(self):
-        pass
+        for transaction in self.data["transactions"]:
+            print(f"Type: {transaction['type']} | Amount: {transaction['amount']} | Category: {transaction.get('category', 'N/A')} | Description: {transaction['description']}")
+
     
     def get_summary(self):
         pass
