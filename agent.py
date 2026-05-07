@@ -30,7 +30,7 @@ Extract the intent and reply with ONLY one of these commands:
 
     def call_ai(self, user_input):
         response = self.client.models.generate_content(
-            model="gemini-1.5-flash",
+            model="gemini-2.0-flash-lite",
             contents=self.system + "\nUser: " + user_input
         )
         return response.text.strip()
