@@ -1,6 +1,5 @@
 import anthropic
 from tracker import Tracker
-
 class Agent:
     def __init__(self):
         self.tracker = Tracker()
@@ -39,6 +38,17 @@ class Agent:
             messages=self.messages
         )
         return response.content[0].text
-
     def execute(self, command):
-        pass
+        parts = command.strip().split()
+        action = parts[0]
+        if action == "ADD_EXPENSE":
+            self.tracker.add_expense(float(parts[1]), parts[2], parts[3])
+        elif action == "ADD_INCOME":
+            self.tracker.add_income(float(parts[1]), parts[2])
+        elif action == "VIEW_TRANSACTIONS":
+            self.tracker.view_transactions()
+        elif action == "GET_SUMMARY":
+            self.tracker.get_summary()
+        else:
+            print("Sorry I didn't understand that!")
+
