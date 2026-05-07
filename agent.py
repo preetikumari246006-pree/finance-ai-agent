@@ -1,5 +1,5 @@
+import anthropic
 from tracker import Tracker
-import os
 
 class Agent:
     def __init__(self):
@@ -19,7 +19,26 @@ class Agent:
         self.messages.append({"role": "assistant", "content": response})
         self.execute(response)
     def call_ai(self):
-        pass
+        client = anthropic.Anthropic()
+        response = client.messages.create(
+            model="claude-opus-4-6",
+            max_tokens=1024,
+            system="""You are a finance tracking assistant.
+    Extract the intent from user message and reply with ONLY one of these commands:
+    - ADD_EXPENSE amount category description
+    - ADD_INCOME amount description
+    - VIEW_TRANSACTIONS
+    - GET_SUMMARY
+    - UNKNOWN
+    
+    Examples:
+    User: I spent 500 on food → ADD_EXPENSE 500 food groceries
+    User: earned 10000 salary → ADD_INCOME 10000 salary
+    User: show transactions → VIEW_TRANSACTIONS
+    """,
+            messages=self.messages
+        )
+        return response.content[0].text
 
     def execute(self, command):
         pass
