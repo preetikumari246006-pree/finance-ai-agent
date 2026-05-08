@@ -1,10 +1,10 @@
-from google import genai
+from groq import Groq
 from tracker import Tracker
 
 class Agent:
     def __init__(self):
         self.tracker = Tracker()
-        self.client = genai.Client(api_key="AIzaSyBHWjSp1rgq4ufaTgV2zh_QQPhjF1c7-lM")
+        self.client = Groq(api_key="YOUR_GROQ_KEY")
         self.history = []
         self.system = """You are a finance tracking assistant.
 Extract the intent and reply with ONLY one of these commands:
@@ -29,11 +29,14 @@ Extract the intent and reply with ONLY one of these commands:
         self.execute(response)
 
     def call_ai(self, user_input):
-        response = self.client.models.generate_content(
-            model="gemini-2.0-flash-lite",
-            contents=self.system + "\nUser: " + user_input
+        response = self.client.chat.completions.create(
+            model="llama3-8b-8192",
+            messages=[
+                {"role": "system", "content": self.system},
+                {"role": "user", "content": user_input}
+            ]
         )
-        return response.text.strip()
+        return response.choices[0].message.content.strip()
 
     def execute(self, command):
         parts = command.strip().split()
