@@ -39,7 +39,7 @@ User: get summary → GET_SUMMARY"""
 
     def call_ai(self, user_input):
         response = self.client.chat.completions.create(
-            model="llama3-8b-8192",
+            model="llama-3.3-70b-versatile",
             messages=[
                 {"role": "system", "content": self.system},
                 {"role": "user", "content": user_input}
