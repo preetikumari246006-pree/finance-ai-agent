@@ -1,18 +1,27 @@
 from groq import Groq
 from tracker import Tracker
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 class Agent:
     def __init__(self):
         self.tracker = Tracker()
-        self.client = Groq(api_key="YOUR_GROQ_KEY")
-        self.history = []
+        self.client = Groq(api_key=os.getenv("GROQ_API_KEY"))
         self.system = """You are a finance tracking assistant.
 Extract the intent and reply with ONLY one of these commands:
 - ADD_EXPENSE amount category description
 - ADD_INCOME amount description
 - VIEW_TRANSACTIONS
 - GET_SUMMARY
-- UNKNOWN"""
+- UNKNOWN
+
+Examples:
+User: I spent 500 on food → ADD_EXPENSE 500 food groceries
+User: earned 10000 salary → ADD_INCOME 10000 salary
+User: show transactions → VIEW_TRANSACTIONS
+User: get summary → GET_SUMMARY"""
 
     def run(self):
         print("💸 Welcome to Finance AI Agent!")
