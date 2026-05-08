@@ -4,7 +4,7 @@ from tracker import Tracker
 class Agent:
     def __init__(self):
         self.tracker = Tracker()
-        self.client = genai.Client(api_key="AIzaSyCNwc0If1fymnEtoGKNOvO9n2BM3VYeRx8")
+        self.client = genai.Client(api_key="AIzaSyBHWjSp1rgq4ufaTgV2zh_QQPhjF1c7-lM")
         self.history = []
         self.system = """You are a finance tracking assistant.
 Extract the intent and reply with ONLY one of these commands:
