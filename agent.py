@@ -48,17 +48,21 @@ User: get summary → GET_SUMMARY"""
         return response.choices[0].message.content.strip()
 
     def execute(self, command):
-        parts = command.strip().split()
-        action = parts[0]
-        if action == "ADD_EXPENSE":
-            self.tracker.add_expense(float(parts[1]), parts[2], parts[3])
-            print("✅ Expense added!")
-        elif action == "ADD_INCOME":
-            self.tracker.add_income(float(parts[1]), parts[2])
-            print("✅ Income added!")
-        elif action == "VIEW_TRANSACTIONS":
-            self.tracker.view_transactions()
-        elif action == "GET_SUMMARY":
-            self.tracker.get_summary()
-        else:
-            print("❌ Sorry I didn't understand!")
+        try:
+            parts = command.strip().split()
+            action = parts[0]
+            if action == "ADD_EXPENSE":
+                self.tracker.add_expense(float(parts[1]), parts[2], parts[3])
+                print("✅ Expense added!")
+            elif action == "ADD_INCOME":
+                self.tracker.add_income(float(parts[1]), parts[2])
+                print("✅ Income added!")
+            elif action == "VIEW_TRANSACTIONS":
+                self.tracker.view_transactions()
+            elif action == "GET_SUMMARY":
+                self.tracker.get_summary()
+            else:
+                print("❌ Sorry I didn't understand!")
+        except Exception as e:
+            print(f"❌ Something went wrong: {e}")
+    
