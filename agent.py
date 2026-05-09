@@ -38,14 +38,18 @@ User: get summary → GET_SUMMARY"""
         self.execute(response)
 
     def call_ai(self, user_input):
-        response = self.client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            messages=[
-                {"role": "system", "content": self.system},
-                {"role": "user", "content": user_input}
-            ]
-        )
-        return response.choices[0].message.content.strip()
+        try:
+            response = self.client.chat.completions.create(
+                model="llama-3.3-70b-versatile",
+                messages=[
+                    {"role": "system", "content": self.system},
+                    {"role": "user", "content": user_input}
+                ]
+            )
+            return response.choices[0].message.content.strip()
+        except Exception as e:
+            print(f"❌ AI Error: {e}")
+            return "UNKNOWN"
 
     def execute(self, command):
         try:
