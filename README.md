@@ -2,8 +2,7 @@
 
 > *"Your broke era ends here."*
 
-An AI-powered financial agent that tracks, analyzes, and advises your money —
-all through natural conversation. No spreadsheets. No apps. Just talk.
+An AI-powered financial agent that tracks, analyzes, and advises your money — all through natural conversation. No spreadsheets. No apps. Just talk.
 
 ---
 
@@ -21,15 +20,13 @@ Every month you wonder — *where did my salary go?*
 
 ## ✅ The Solution
 
-`finance-ai-agent` changes that completely.
+`finance-ai-agent` changes that completely. Just open your terminal and talk —
 
-Just open your terminal and talk —
 - *"I spent 300 on groceries"* → **Logged.**
 - *"How much did I waste this week?"* → **Answered instantly.**
 - *"Am I saving enough?"* → **Honest advice, right away.**
 
-> *"Just talk to it — it logs your money, reads your patterns,*
-> *and tells you the truth about your spending."*
+> *"Just talk to it — it logs your money, reads your patterns, and tells you the truth about your spending."*
 
 ---
 
@@ -63,35 +60,8 @@ Real advice. Based on YOUR real data.
 | 💾 Persistent Storage | Your data is always saved, never lost |
 | 📈 Smart Reports | Weekly & monthly spending breakdowns |
 | 🧠 AI Advice | Personalized tips based on your real habits |
+| 🛡️ Error Handling | Bulletproof — never crashes unexpectedly |
 
 ---
 
-## 🛠️ How to Run
-
-```bash
-git clone https://github.com/yourusername/finance-ai-agent.git
-cd finance-ai-agent
-pip install -r requirements.txt
-python main.py
-```
-
----
-
-## 📅 Project Status
-
-🔨 Actively building — Day 1 of 7
-
----
-
-## 📌 Coming Soon
-
-- [ ] Voice input support
-- [ ] Monthly PDF reports
-- [ ] Multi-currency support
-- [ ] Savings goal tracker
-
----
-
-## 📄 License
-
-MIT © 2026 — Built with 💪 and Python
+## 🗂️ Project Structure
