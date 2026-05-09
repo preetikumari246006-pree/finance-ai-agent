@@ -24,11 +24,20 @@ User: show transactions → VIEW_TRANSACTIONS
 User: get summary → GET_SUMMARY"""
 
     def run(self):
-        print("💸 Welcome to Finance AI Agent!")
-        print("Just talk to me naturally!")
+        print("=" * 40)
+        print("💸 FINANCE AI AGENT")
+        print("=" * 40)
+        print("Commands you can say:")
+        print("  • I spent 500 on food")
+        print("  • I earned 10000 salary")
+        print("  • show my transactions")
+        print("  • get summary")
+        print("  • quit")
+        print("=" * 40)
         while True:
-            user_input = input("> ")
-            if user_input == "quit":
+            user_input = input("\n💬 You: ")
+            if user_input.lower() == "quit":
+                print("👋 Goodbye! Stay financially smart!")
                 break
             self.process(user_input)
 
