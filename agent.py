@@ -43,7 +43,6 @@ User: get summary → GET_SUMMARY"""
 
     def process(self, user_input):
         response = self.call_ai(user_input)
-        print(f"🤖 Agent: {response}")
         self.execute(response)
 
     def call_ai(self, user_input):
@@ -78,4 +77,3 @@ User: get summary → GET_SUMMARY"""
                 print("❌ Sorry I didn't understand!")
         except Exception as e:
             print(f"❌ Something went wrong: {e}")
-    
